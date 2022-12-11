@@ -27,6 +27,26 @@ function ingestDataIntoSplunk(data, callback) {
     // ...
   }
 
+// function ingestDataIntoSplunk(data, callback) {
+//   // First, we'll create a new array to hold the batches of data
+//   const dataBatches = [];
+
+//   // Then, we'll split the data into batches of the specified size
+//   let currentBatch = [];
+//   dataBatches = data.map((datum) => {
+//     currentBatch.push(datum);
+//     if (currentBatch.length === BATCH_SIZE) {
+//       const batch = currentBatch;
+//       currentBatch = [];
+//       return batch;
+//     }
+//   });
+//   if (currentBatch.length > 0) {
+//     dataBatches.push(currentBatch);
+//   }
+//   // ...
+// }
+
   async.each(dataBatches, (batch, batchCallback) => {
     // Here, we'll construct the options for the API request
     const options = {
